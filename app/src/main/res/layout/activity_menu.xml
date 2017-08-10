@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/userUidText"
+        android:textSize="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_below="@id/userUidText"
+        android:id="@+id/generateCompanyBtn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Generate company"/>
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="back"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/select_photo"
+        android:layout_width="100dp"
+        android:text="select photo"
+        android:layout_toRightOf="@id/generateCompanyBtn"
+        android:layout_below="@id/userUidText"
+        android:layout_marginLeft="6dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/savePhotoBtn"
+        android:layout_width="100dp"
+        android:text="save photo"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/select_photo"
+        android:layout_marginLeft="6dp"
+        android:layout_below="@id/userUidText"/>
+
+    <ImageView
+        android:id="@+id/userPhoto"
+        android:layout_below="@id/select_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+</RelativeLayout>
