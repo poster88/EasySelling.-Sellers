@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">EasySelling. Sellers</string>
+
+    <!-- navigation drawer strings -->
+    <string name="techSupport">Information</string>
+    <string name="myNews">News</string>
+    <string name="myMessages">Company chat</string>
+    <string name="myAccount">My account</string>
+
+    <!-- menu strings -->
+    <string name="action_settings">Settings</string>
+    <string name="action_change_password">Change password</string>
+    <string name="action_delete_account">Delete account</string>
+
+    <!-- account fragment strings -->
+    <string name="verify_label_status">Verify email status</string>
+
+    <!-- registration strings -->
+    <string name="hint_name">Name</string>
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_sur_name">Surname</string>
+    <string name="hint_mobile_number">Mobile number</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_repeat_password">Repeat password</string>
+    <string name="btn_sign_up">Sign Up</string>
 </resources>
