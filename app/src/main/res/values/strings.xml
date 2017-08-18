@@ -24,4 +24,27 @@
     <string name="hint_password">Password</string>
     <string name="hint_repeat_password">Repeat password</string>
     <string name="btn_sign_up">Sign Up</string>
+
+    <!-- other -->
+    <string name="skip">Skip</string>
+    <string name="loading">loading</string>
+    <string name="email">email</string>
+    <string name="pass">pass</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- registration errors -->
+    <string name="err_msg_data">Field is empty</string>
+    <string name="err_msg_email">Email is not valid</string>
+    <string name="err_msg_check_email">Check your email</string>
+    <string name="err_msg_empty_email">Email is empty</string>
+    <string name="err_msg_password">Field is empty</string>
+    <string name="err_msg_password_length">Password length must be min 6 character</string>
+    <string name="err_msg_last_name">Last name is empty</string>
+    <string name="err_msg_sur_name">Surname is empty</string>
+    <string name="err_msg_mob_number">Mobile number is empty</string>
+    <string name="err_msg_check_pass">Passwords are difference</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

@@ -5,7 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.poster.easysellingsellers.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -79,12 +81,11 @@ public class LoginActivity extends BaseActivity{
 
     @OnClick(R.id.sent_pass_on_email)
     public void sendPassResetEmail() {
-        super.startCurActivity(this, SentPassToEmailActivity.class);
+        /*super.startCurActivity(this, SentPassToEmailActivity.class);*/
     }
 
     @Override
     public void onBackPressed() {
         super.exitProgram();
     }
-}
 }

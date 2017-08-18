@@ -19,7 +19,7 @@
         android:id="@+id/logo_image"
         android:layout_width="230dp"
         android:layout_height="230dp"
-        android:src="@drawable/mip_logo"
+        android:src="@drawable/ic_android_black_24dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="12dp"/>
 
@@ -37,7 +37,7 @@
             android:layout_marginTop="28dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:src="@drawable/email" />
+            android:src="@drawable/ic_email_black_24dp" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/inputTextEmail"
@@ -67,7 +67,7 @@
             android:layout_marginTop="18dp"
             android:layout_marginRight="16dp"
             android:layout_below="@+id/inputTextEmail"
-            android:src="@drawable/key"
+            android:src="@drawable/ic_lock_black_24dp"
             android:layout_alignStart="@+id/user_login_image" />
 
         <android.support.design.widget.TextInputLayout
@@ -141,7 +141,7 @@
             android:id="@+id/forgotPassImage"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:src="@drawable/lock_1"
+            android:src="@drawable/ic_lock_black_24dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"/>
 
@@ -178,7 +178,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/annon_login"
+            android:src="@drawable/ic_navigate_next_black_24dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"/>
     </LinearLayout>

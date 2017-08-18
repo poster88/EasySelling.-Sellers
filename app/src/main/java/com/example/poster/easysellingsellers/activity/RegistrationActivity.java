@@ -7,6 +7,11 @@ import android.support.design.widget.TextInputLayout;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.poster.easysellingsellers.R;
+import com.example.poster.easysellingsellers.model.UserLoginInfoTable;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.HashMap;
