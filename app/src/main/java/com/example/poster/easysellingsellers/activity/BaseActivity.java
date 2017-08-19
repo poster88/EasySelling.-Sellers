@@ -67,6 +67,8 @@ public class BaseActivity extends AppCompatActivity {
     public static CompaniesInfoTable companiesInfoTable;
     public static Query refCompanyTable;
 
+    public static Query reqvestsToAddUsersTableRef;
+
     private boolean isUserClickedBackButton = false;
 
     protected MyValueEventListener onUidUserDataListener = new MyValueEventListener() {

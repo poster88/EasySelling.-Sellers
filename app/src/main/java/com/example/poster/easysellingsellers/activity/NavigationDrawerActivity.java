@@ -73,7 +73,7 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
         checkSaveInstanceState(savedInstanceState);
         getWindow().setStatusBarColor(Color.TRANSPARENT);
         userRef = super.database.getReference(USER_INFO_TABLE).orderByChild("uID").equalTo(super.user.getUid());
-        }
+    }
 
     @Subscribe
     public void updateUI(UpdateUIEvent event) {
@@ -118,6 +118,8 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
             logOut.setVisibility(View.VISIBLE);
             logOut.setOnClickListener(this);
         }
+        //todo: метод для відображення нотіфікейшн
+        navigationView.getMenu().getItem(2).getActionView().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -139,7 +141,6 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
         navHeader.findViewById(R.id.email).setVisibility(View.GONE);
         navHeader.findViewById(R.id.sign_in_form_nav).setOnClickListener(this);
         navHeader.findViewById(R.id.reg_in_form_nav).setOnClickListener(this);
-        //navigationView.getMenu().getItem(0).setActionView(R.layout.notification_layout);
     }
 
     private void loadHomeFragment(){
