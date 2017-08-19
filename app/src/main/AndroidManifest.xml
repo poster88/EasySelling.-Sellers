@@ -28,7 +28,16 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".MenuActivity"/>
-        <activity android:name=".activity.RegistrationActivity"/>
+        <activity android:name=".activity.RegistrationActivity"
+            android:label="@string/activity_title_registration"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ChangeNumberActivity"
+            android:label="@string/activity_title_change_number"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ChangePersonalDataActivity"
+            android:label="@string/activity_title_change_user_data"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

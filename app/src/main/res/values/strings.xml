@@ -6,6 +6,9 @@
     <string name="myNews">News</string>
     <string name="myMessages">Company chat</string>
     <string name="myAccount">My account</string>
+    <string name="myCompany">My company</string>
+    <string name="newRequestToAddUser">Requests to add user</string>
+    <string name="newOrder">Orders requests</string>
 
     <!-- menu strings -->
     <string name="action_settings">Settings</string>
@@ -47,4 +50,8 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="activity_title_registration">User registration</string>
+    <string name="activity_title_change_number">Change number</string>
+    <string name="activity_title_change_user_data">Change user data</string>
 </resources>

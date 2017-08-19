@@ -24,6 +24,7 @@ import com.example.poster.easysellingsellers.R;
 import com.example.poster.easysellingsellers.event.UpdateCompanyUI;
 import com.example.poster.easysellingsellers.event.UpdateUIEvent;
 import com.example.poster.easysellingsellers.eventbus.BusProvider;
+import com.example.poster.easysellingsellers.fragment.MyAccountFragment;
 import com.example.poster.easysellingsellers.utils.CircleTransform;
 import com.google.firebase.auth.FirebaseAuth;
 import com.squareup.otto.Subscribe;
@@ -76,34 +77,36 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
 
     @Subscribe
     public void updateUI(UpdateUIEvent event) {
-        TextView userName = ButterKnife.findById(navHeader, R.id.name);
-        TextView userEmail = ButterKnife.findById(navHeader, R.id.email);
-        ImageView userPhoto = ButterKnife.findById(navHeader, R.id.img_profile);
-        ProgressBar progressBar = ButterKnife.findById(navHeader, R.id.progressBar);
-        userName.setText(userModel.getName());
-        userEmail.setText(userModel.getEmail());
-        if (!userModel.getPhotoUrl().equals("default_uri")) {
-            progressBar.setProgress(getTaskId());
-            Glide.with(getApplicationContext())
-                    .load(Uri.parse(NavigationDrawerActivity.userModel.getPhotoUrl()))
-                    .crossFade().thumbnail(0.5f)
-                    .bitmapTransform(new CircleTransform(getApplicationContext()))
-                    .diskCacheStrategy(DiskCacheStrategy.ALL).into(userPhoto);
-        }
-        if (!userModel.getCompanyUid().equals("default_uri")) {
-            refCompanyTable = database.getReference(COMP_INF_TABLE).child(userModel.getCompanyUid());
-            refCompanyTable.addValueEventListener(onCompanyInfoTableListener);
-        } else {
-            companiesInfoTable = null;
-            refCompanyTable = null;
-            BusProvider.getInstance().post(new UpdateCompanyUI());
+        if (BaseActivity.userModel != null){
+            TextView userName = ButterKnife.findById(navHeader, R.id.name);
+            TextView userEmail = ButterKnife.findById(navHeader, R.id.email);
+            ImageView userPhoto = ButterKnife.findById(navHeader, R.id.img_profile);
+            ProgressBar progressBar = ButterKnife.findById(navHeader, R.id.progressBar);
+            userName.setText(userModel.getName());
+            userEmail.setText(userModel.getEmail());
+            if (!userModel.getPhotoUrl().equals("default_uri")) {
+                progressBar.setProgress(getTaskId());
+                Glide.with(getApplicationContext())
+                        .load(Uri.parse(NavigationDrawerActivity.userModel.getPhotoUrl()))
+                        .crossFade().thumbnail(0.5f)
+                        .bitmapTransform(new CircleTransform(getApplicationContext()))
+                        .diskCacheStrategy(DiskCacheStrategy.ALL).into(userPhoto);
+            }
+            if (!userModel.getCompanyUid().equals("default_uri")) {
+                refCompanyTable = database.getReference(COMP_INF_TABLE).child(userModel.getCompanyUid());
+                refCompanyTable.addValueEventListener(onCompanyInfoTableListener);
+            } else {
+                companiesInfoTable = null;
+                refCompanyTable = null;
+                BusProvider.getInstance().post(new UpdateCompanyUI());
+            }
         }
     }
 
     private void checkSaveInstanceState(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
-            CURRENT_TAG = TAG_HOME;
-            /*loadHomeFragment();*/
+            CURRENT_TAG = TAG_ACCOUNT;
+            loadHomeFragment();
         }
     }
 
@@ -136,16 +139,17 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
         navHeader.findViewById(R.id.email).setVisibility(View.GONE);
         navHeader.findViewById(R.id.sign_in_form_nav).setOnClickListener(this);
         navHeader.findViewById(R.id.reg_in_form_nav).setOnClickListener(this);
+        //navigationView.getMenu().getItem(0).setActionView(R.layout.notification_layout);
     }
 
     private void loadHomeFragment(){
         getSupportActionBar().setTitle(CURRENT_TAG);
-        /*pendingRunnable.run();
+        pendingRunnable.run();
         if (pendingRunnable != null){
             handler.post(pendingRunnable);
         }
         drawer.closeDrawers();
-        invalidateOptionsMenu();*/
+        invalidateOptionsMenu();
     }
 
     private void setUpNavigationView() {
@@ -165,9 +169,9 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
             drawer.closeDrawers();
             return;
         }
-        if (!CURRENT_TAG.equals(TAG_HOME)) {
-            CURRENT_TAG = TAG_HOME;
-            /*loadHomeFragment();*/
+        if (!CURRENT_TAG.equals(TAG_ACCOUNT)) {
+            CURRENT_TAG = TAG_ACCOUNT;
+            loadHomeFragment();
             return;
         }
         if (!super.user.isAnonymous()){
@@ -182,11 +186,11 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
         Fragment fragment = null;
         /*if (CURRENT_TAG.equals(TAG_HOME)){
             fragment = new ProductCatalogFragment();
-        }
+        }*/
         if (CURRENT_TAG.equals(TAG_ACCOUNT)){
             fragment = new MyAccountFragment();
         }
-        if (CURRENT_TAG.equals(TAG_ORDER)){
+        /*if (CURRENT_TAG.equals(TAG_ORDER)){
             fragment = new MyOrdersFragment();
         }
         if (CURRENT_TAG.equals(TAG_CHAT)){
@@ -208,11 +212,11 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         /*if (item.getItemId() == R.id.nav_catalog_items) {
             CURRENT_TAG = TAG_HOME;
-        }
+        }*/
         if (item.getItemId() == R.id.nav_account) {
             CURRENT_TAG = TAG_ACCOUNT;
         }
-        if (item.getItemId() == R.id.nav_order) {
+        /*if (item.getItemId() == R.id.nav_order) {
             CURRENT_TAG = TAG_ORDER;
         }
         if (item.getItemId() == R.id.nav_messages) {
@@ -226,12 +230,12 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
         }
         if (item.getItemId() == R.id.nav_tech_support) {
             CURRENT_TAG = TAG_INFORMATION;
-        }
+        }*/
         if (item.isChecked()) {
             item.setChecked(false);
         } else {
             item.setChecked(true);
-        }*/
+        }
         loadHomeFragment();
         return true;
     }
