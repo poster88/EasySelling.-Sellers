@@ -81,10 +81,9 @@ public class MenuActivity extends AppCompatActivity implements ActivityCompat.On
     public void genCompany(){
         String id = refCompInfTable.push().getKey();
         List<String> productKeys = new ArrayList<>();
-        productKeys.add("Пральні порошки");
-        productKeys.add("Гелі для прання");
-        productKeys.add("Мила");
-        productKeys.add("Відбілювачі");
+        productKeys.add("Тренажери та фітнес");
+        productKeys.add("велосипеди");
+        productKeys.add("спортивне харчування");
 
         List<String> peoples = new ArrayList<>();
         peoples.add("default_uri");
@@ -102,122 +101,97 @@ public class MenuActivity extends AppCompatActivity implements ActivityCompat.On
 
         Product product1 = new Product();
         product1.setId(refCompInfTable.push().getKey());
-        product1.setName("Пральний порошок Persil");
-        product1.setDescription("Стиральный порошок Persil Колор от компании Henkel предназначен для стирки цветных вещей. Он отлично удаляет загрязнения и сохраняет яркость вашей одежды.");
-        product1.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Fpersil.jpg?alt=media&token=023e0662-fe6c-459f-a308-df452244a97d");
-        product1.setPrice(539.4);
-        product1.setWeight("3kg");
-        product1.setColor("white");
+        product1.setName("Велосипед Cronus Rover");
+        product1.setDescription("Розмір рами: 21, Клас: Гірський, Кількість швидкостей: 24, Тип: Хардтейл");
+        product1.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fgreen_world%2Fcronus_rover_310_21_26_white_00201_images_1451219364.jpg?alt=media&token=27d4bdaf-564b-42dd-b0b7-90cf0b648376");
+        product1.setPrice(9550.0);
         product1.setAvailability(true);
-        product1.setCount(993);
+        product1.setCount(100);
 
         Product product2 = new Product();
         product2.setId(refCompInfTable.push().getKey());
-        product2.setName("Плямовивідник порошкоподібний для тканин Vanish Gold Oxi Action");
-        product2.setDescription("Порошковый пятновыводитель Vanish Gold Oxi Action удаляет пятна всего за 30 секунд, подходит как для белых, так и для цветных вещей");
-        product2.setPrice(117.0);
-        product2.setColor("white");
+        product2.setName("Велосипед Rocky Mountain Fusion");
+        product2.setDescription("Велосипед Rocky Mountain Fusion 910 — найнер повсякденного рівня для катання слабопересіченою місцевістю. Спрощена алюмінієва рама з гідроформінгом на колесах 29, допоможе проходити складніші ділянки, ніж класичні велосипеди, на 26.");
+        product2.setPrice(12750.0);
+        product2.setColor("black");
         product2.setAvailability(true);
-        product2.setCount(444);
-        product2.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Fvanish.jpg?alt=media&token=313e9fb7-1b48-446b-8d5e-7f391869b5cc");
+        product2.setCount(66);
+        product2.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fgreen_world%2Fcopy_rocky_mountain_770416203059_593fca91d0253_images_2045490414.jpg?alt=media&token=e7c3712f-e57e-4958-8403-8ffed825421e");
 
         Product product3 = new Product();
         product3.setId(refCompInfTable.push().getKey());
-        product3.setName("Ополіскувач для білизни Silan Небесна свіжість");
-        product3.setDescription("Silan делает ткани мягкими, предотвращает электризацию вещей, облегчает глажку. Благодаря Silan вещи высыхают быстрее, а также приобретают длительный нежный аромат");
-        product3.setPrice(110.0);
+        product3.setName("Велосипед Titan Десна 16");
+        product3.setDescription("Применять велосипед желательно на ровном асфальтированном или грунтовом покрытии. Ездить на нем идеально именно в городских условиях.");
+        product3.setPrice(3000.0);
         product3.setColor("white");
         product3.setAvailability(true);
-        product3.setCount(444);
-        product3.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Fsilan.jpg?alt=media&token=3c250aff-5c06-40cb-9d9a-d89b5217bea9");
+        product3.setCount(512);
+        product3.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fgreen_world%2Ftitan_wns315_images_1847811398.jpg?alt=media&token=26e1c5ec-dd9a-465d-ad69-7a3068a7d10b");
 
-        List<Product> dlya_prannya = new ArrayList<>();
-        dlya_prannya.add(product1);
-        dlya_prannya.add(product2);
-        dlya_prannya.add(product3);
+        List<Object> velosipedu = new ArrayList<>();
+        velosipedu.add(product1.toMap());
+        velosipedu.add(product2.toMap());
+        velosipedu.add(product3.toMap());
 
 
         Product product21 = new Product();
         product21.setId(refCompInfTable.push().getKey());
-        product21.setName("Засіб для миття посуду Fairy ProDerma Алое Вера і Кокос");
-        product21.setDescription("Средство для мытья посуды Fairy ProDerma Алоэ Вера и Кокос от Procter & Gamble – всемирно известной американской транснациональной компании, являющейся одной из лидеров мирового рынка потребительских товаров.");
-        product21.setPrice(27.0);
+        product21.setName("Орбітрек EnergyFIT BE2200S");
+        product21.setDescription("Тренажёр эллиптический EnergyFIT BЕ2200S относится к числу кардиотренажеров, которые тренируют основные группы мышц, повышают выносливость организма и развивают дыхательную систему.");
+        product21.setPrice(7500.0);
         product21.setAvailability(true);
-        product21.setCount(55);
-        product21.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Ffairy.jpg?alt=media&token=9d5deb50-37b8-4511-a630-afb7c6ebaba2");
+        product21.setCount(24);
+        product21.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fgreen_world%2Fenergyfit_be2200s_images_182330857.jpg?alt=media&token=8a809c24-fac8-4c26-83ca-a46c29f49ae8");
 
-        Product product22 = new Product();
-        product22.setId(refCompInfTable.push().getKey());
-        product22.setName("Опис Гель для миття посуду Bio Formula Чайне дерево і М'ята");
-        product22.setDescription("Гель содержит биологически разлагаемые ПАВ. Легко смывается с посуды! Содержит экстракт щавеля (для придания блеска) и экстракты чайного дерева и мяты перечной. Грицерин защищает кожу рук от пересыхания. Бальзам имеет легкий аромат.");
-        product22.setPrice(12.0);
-        product22.setAvailability(true);
-        product22.setCount(500);
-        product22.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Fbio_formula.jpg?alt=media&token=0a335eb6-9a51-4507-a114-3282cb2149bf");
-
-        Product product23 = new Product();
-        product23.setId(refCompInfTable.push().getKey());
-        product23.setName("Опис Таблетки для посудомийної машини Somat");
-        product23.setDescription("Somat All in 1 имеет безфосфатную формулу и усилен действием лимонной кислоты. Он избавляется даже от стойких остатков еды и накипи от кофе и чая, а также обеспечивает безупречный результат уже при 40°.");
-        product23.setPrice(270.0);
-        product23.setAvailability(true);
-        product23.setCount(401);
-        product23.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Fsomat.jpg?alt=media&token=59b80bb8-780f-4b68-9090-d1d33e613225");
-
-        List<Product> dlya_posudu = new ArrayList<>();
-        dlya_posudu.add(product21);
-        dlya_posudu.add(product22);
-        dlya_posudu.add(product23);
+        List<Object> fitnes = new ArrayList<>();
+        fitnes.add(product21.toMap());
 
         Product product31 = new Product();
         product31.setId(refCompInfTable.push().getKey());
-        product31.setName("Засіб від цвілі Glutoclean з хлором");
-        product31.setDescription("Средство от плесени для эффективного и долговременного удаления плесени и грибка всех видов. Мгновенное дезинфицирующее действие с сильным отбеливающим эффектом. Помогает легко удалить плесень с любых поверхностей.");
-        product31.setPrice(190.0);
+        product31.setName("Креатин Креатин Optimum Nutrition");
+        product31.setDescription("Creatine Powder – это пищевая добавка для атлетов, как начинающих, так и для активно занимающихся. Согласно результатам исследований креатина моногидрата при его употреблении у спортсменов наблюдается увеличение силы, выносливости, а также повышение пика предельных нагрузок.");
+        product31.setPrice(360.0);
         product31.setAvailability(true);
         product31.setCount(2061);
-        product31.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Fbio_formula.jpg?alt=media&token=0a335eb6-9a51-4507-a114-3282cb2149bf");
+        product31.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fgreen_world%2FOPN-02384-10.jpg?alt=media&token=fc34dc29-f6bf-4b13-ae19-80493ecb5e98");
 
         Product product32 = new Product();
         product32.setId(refCompInfTable.push().getKey());
-        product32.setName("Засіб для миття підлоги Fit Mr Floor Лайм");
-        product32.setDescription("Компания Алес — производитель высококачественной косметики и бытовой химии. Компания славится высококвалифицированным кадровым потенциалом, разработанными фирменными рецептурами, высококачественным сырьем известных компаний и разными сериями косметических средств таких, как Olis, 5 Five, Fit и другие.");
-        product32.setPrice(28.0);
+        product32.setName("Креатин BT 100% Creatine Monohydrate банка - 500g");
+        product32.setDescription("Creatine Monohydrate является наиболее популярной и употребляемой спортивной пищевой добавкой в мире. Он способен оказывать сильное влияние на рост мышечной массы и ее силы. Наибольшее преимущество креатина заключается в его способности воздействовать на организм атлета: при восстановлении сил одновременно увеличивается мощь и сила.");
+        product32.setPrice(240.0);
         product32.setAvailability(true);
-        product32.setCount(19061);
-        product32.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Ffir.jpg?alt=media&token=147086fa-439e-42e3-ae2d-c336c5729e3d");
+        product32.setCount(4061);
+        product32.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fgreen_world%2F752852000_w200_h200_cid2718885_pid517635865-f7f92b50.jpg?alt=media&token=f2f6b82c-de3a-494e-8dae-adddde751cca");
 
-        List<Product> uborka = new ArrayList<>();
-        uborka.add(product31);
-        uborka.add(product32);
+        Product product33 = new Product();
+        product33.setId(refCompInfTable.push().getKey());
+        product33.setName("Протеїн SN 100% Whey Protein Prof 2350 г Vanilla Very Berry");
+        product33.setDescription("100% Whey Protein Professional Scitec Nutrition – высококачественный концентрат ультрафильтрованного сывороточного протеина.");
+        product33.setPrice(1300.0);
+        product33.setAvailability(true);
+        product33.setCount(5701);
+        product33.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fgreen_world%2F91nPclrG47L._SY450_.jpg?alt=media&token=ac7f844a-a1b1-4cd1-a852-1fd1068ad8f5");
 
-        Product product41 = new Product();
-        product41.setId(refCompInfTable.push().getKey());
-        product41.setName("Серветки універсальні Bella №1 паперові чотиришарові 100 шт");
-        product41.setDescription("Мягкие, тонкие, двухслойные косметические салфетки без аромата");
-        product41.setPrice(25.0);
-        product41.setAvailability(true);
-        product41.setCount(300234);
-        product41.setPhotoUries("https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/items_images%2Fhouse_master%2Fbella.jpg?alt=media&token=b9537f7e-25d2-4cde-ae0e-5e6d87d5009f");
-
-        List<Product> gosp_tovar = new ArrayList<>();
-        gosp_tovar.add(product41);
+        List<Object> sportpit = new ArrayList<>();
+        sportpit.add(product31.toMap());
+        sportpit.add(product32.toMap());
+        sportpit.add(product33.toMap());
 
 
         Map<String, Object> subCategories = new HashMap<>();
-        subCategories.put("Для прання", dlya_prannya);
-        subCategories.put("Для миття посуду", dlya_posudu);
-        subCategories.put("Для прибирання", uborka);
-        subCategories.put("Господарчі товари", gosp_tovar);
+        subCategories.put("Велосипеди", velosipedu);
+        subCategories.put("Тренажери та фітнес", fitnes);
+        subCategories.put("спортивне харчування", sportpit);
 
         Map<String, Object> categories = new HashMap<>();
-        categories.put("Побутова хімія", subCategories);
+        categories.put("Спорт", subCategories);
 
         CompaniesInfoTable companyInfoTable = new CompaniesInfoTable(
                 id,
-                "HouseMaster",
-                "Виробництво та збут побутової хімії",
-                "https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/companies_logos%2FhouseMaster.png?alt=media&token=329acb45-4048-4704-99fd-1b78a73309b2",
+                "GreenWorld",
+                "Товари для спорту",
+                "https://firebasestorage.googleapis.com/v0/b/fir-projectdb.appspot.com/o/companies_logos%2FgreenWorld.png?alt=media&token=1ce0ef26-26d7-448c-b04a-84c976ca3920",
                 productKeys,
                 positions,
                 categories

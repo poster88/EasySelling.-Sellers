@@ -1,5 +1,8 @@
 package com.example.poster.easysellingsellers.model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by POSTER on 07.08.2017.
  */
@@ -28,6 +31,20 @@ public class Product {
         this.color = color;
         this.availability = availability;
         this.count = count;
+    }
+
+    public Map<String, Object> toMap(){
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("name", name);
+        result.put("description", description);
+        result.put("photoUri", photoUri);
+        result.put("price", price);
+        result.put("weight", weight);
+        result.put("color", color);
+        result.put("availability", availability);
+        result.put("count", count);
+        return result;
     }
 
     public String getId() {
