@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_account_box_black_24dp"
+            android:title="@string/myAccount" />
+        <item
+            android:id="@+id/nav_my_company"
+            android:icon="@drawable/ic_domain_black_24dp"
+            android:title="@string/myCompany" />
+        <item
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:actionLayout="@layout/notification_layout"
+            android:id="@+id/nav_request_add_to_company"
+            android:icon="@drawable/ic_group_add_black_24dp"
+            android:title="@string/newRequestToAddUser" />
+        <item
+            android:id="@+id/nav_request_new_order"
+            android:icon="@drawable/ic_card_giftcard_black_24dp"
+            android:title="@string/newOrder" />
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_chat_black_24dp"
+            android:title="@string/myMessages"/>
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="@string/myNews"/>
+        <item
+            android:id="@+id/nav_tech_support"
+            android:icon="@drawable/ic_live_help_black_24dp"
+            android:title="@string/techSupport"/>
+    </group>
+
+</menu>

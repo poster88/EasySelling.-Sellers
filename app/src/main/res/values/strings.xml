@@ -1,3 +1,57 @@
 <resources>
     <string name="app_name">EasySelling. Sellers</string>
+
+    <!-- navigation drawer strings -->
+    <string name="techSupport">Information</string>
+    <string name="myNews">News</string>
+    <string name="myMessages">Company chat</string>
+    <string name="myAccount">My account</string>
+    <string name="myCompany">My company</string>
+    <string name="newRequestToAddUser">Requests to add user</string>
+    <string name="newOrder">Orders requests</string>
+
+    <!-- menu strings -->
+    <string name="action_settings">Settings</string>
+    <string name="action_change_password">Change password</string>
+    <string name="action_delete_account">Delete account</string>
+
+    <!-- account fragment strings -->
+    <string name="verify_label_status">Verify email status</string>
+
+    <!-- registration strings -->
+    <string name="hint_name">Name</string>
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_sur_name">Surname</string>
+    <string name="hint_mobile_number">Mobile number</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_repeat_password">Repeat password</string>
+    <string name="btn_sign_up">Sign Up</string>
+
+    <!-- other -->
+    <string name="skip">Skip</string>
+    <string name="loading">loading</string>
+    <string name="email">email</string>
+    <string name="pass">pass</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <!-- registration errors -->
+    <string name="err_msg_data">Field is empty</string>
+    <string name="err_msg_email">Email is not valid</string>
+    <string name="err_msg_check_email">Check your email</string>
+    <string name="err_msg_empty_email">Email is empty</string>
+    <string name="err_msg_password">Field is empty</string>
+    <string name="err_msg_password_length">Password length must be min 6 character</string>
+    <string name="err_msg_last_name">Last name is empty</string>
+    <string name="err_msg_sur_name">Surname is empty</string>
+    <string name="err_msg_mob_number">Mobile number is empty</string>
+    <string name="err_msg_check_pass">Passwords are difference</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="activity_title_registration">User registration</string>
+    <string name="activity_title_change_number">Change number</string>
+    <string name="activity_title_change_user_data">Change user data</string>
 </resources>

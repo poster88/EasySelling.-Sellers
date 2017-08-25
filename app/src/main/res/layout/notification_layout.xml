@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.ImageView
+    android:id="@+id/notif_id_image"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_notifications_black_24dp"
+    android:gravity="right|center_vertical"
+    app:buttonTint="@color/colorPrimary"
+    android:visibility="invisible"
+    android:padding="16dp"/>
