@@ -23,10 +23,14 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.poster.easysellingsellers.R;
 import com.example.poster.easysellingsellers.event.UpdateCompanyUI;
 import com.example.poster.easysellingsellers.event.UpdateUIEvent;
+import com.example.poster.easysellingsellers.event.UserAddEvent;
 import com.example.poster.easysellingsellers.eventbus.BusProvider;
 import com.example.poster.easysellingsellers.fragment.MyAccountFragment;
+import com.example.poster.easysellingsellers.fragment.MyCompanyFragment;
+import com.example.poster.easysellingsellers.fragment.MyUsersRequestFragment;
 import com.example.poster.easysellingsellers.utils.CircleTransform;
 import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.otto.Produce;
 import com.squareup.otto.Subscribe;
 
 import butterknife.BindView;
@@ -103,6 +107,21 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
         }
     }
 
+    @Produce
+    public UserAddEvent updateNotification(){
+        return new UserAddEvent();
+    }
+
+    @Subscribe
+    public void userAddEvent(UserAddEvent event){
+        //todo: метод для відображення нотіфікейшн
+        if (requestTable != null){
+            navigationView.getMenu().getItem(2).getActionView().setVisibility(View.VISIBLE);
+        }else {
+            navigationView.getMenu().getItem(2).getActionView().setVisibility(View.INVISIBLE);
+        }
+    }
+
     private void checkSaveInstanceState(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             CURRENT_TAG = TAG_ACCOUNT;
@@ -118,8 +137,6 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
             logOut.setVisibility(View.VISIBLE);
             logOut.setOnClickListener(this);
         }
-        //todo: метод для відображення нотіфікейшн
-        navigationView.getMenu().getItem(2).getActionView().setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -185,53 +202,30 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
 
     private Fragment getHomeFragment(){
         Fragment fragment = null;
-        /*if (CURRENT_TAG.equals(TAG_HOME)){
-            fragment = new ProductCatalogFragment();
-        }*/
+        if (CURRENT_TAG.equals(TAG_HOME)){
+            fragment = new MyCompanyFragment();
+        }
         if (CURRENT_TAG.equals(TAG_ACCOUNT)){
             fragment = new MyAccountFragment();
         }
-        /*if (CURRENT_TAG.equals(TAG_ORDER)){
-            fragment = new MyOrdersFragment();
+        if (CURRENT_TAG.equals(TAG_USER_REQ)){
+            fragment = new MyUsersRequestFragment();
         }
-        if (CURRENT_TAG.equals(TAG_CHAT)){
-            fragment = new CompanyChatFragment();
-        }
-        if (CURRENT_TAG.equals(TAG_FAVORITE)){
-            fragment = new WishListFragment();
-        }
-        if (CURRENT_TAG.equals(TAG_NEWS)){
-            fragment = new NewsFragment();
-        }
-        if (CURRENT_TAG.equals(TAG_INFORMATION)){
-            fragment = new InformationFragment();
-        }*/
         return fragment;
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        /*if (item.getItemId() == R.id.nav_catalog_items) {
+        if (item.getItemId() == R.id.nav_my_company) {
             CURRENT_TAG = TAG_HOME;
-        }*/
+        }
         if (item.getItemId() == R.id.nav_account) {
             CURRENT_TAG = TAG_ACCOUNT;
         }
-        /*if (item.getItemId() == R.id.nav_order) {
-            CURRENT_TAG = TAG_ORDER;
+        if (item.getItemId() == R.id.nav_request_add_to_company){
+            CURRENT_TAG = TAG_USER_REQ;
         }
-        if (item.getItemId() == R.id.nav_messages) {
-            CURRENT_TAG = TAG_CHAT;
-        }
-        if (item.getItemId() == R.id.nav_wish_list) {
-            CURRENT_TAG = TAG_FAVORITE;
-        }
-        if (item.getItemId() == R.id.nav_news) {
-            CURRENT_TAG = TAG_NEWS;
-        }
-        if (item.getItemId() == R.id.nav_tech_support) {
-            CURRENT_TAG = TAG_INFORMATION;
-        }*/
+
         if (item.isChecked()) {
             item.setChecked(false);
         } else {
@@ -247,7 +241,7 @@ public class NavigationDrawerActivity extends BaseActivity implements View.OnCli
         if (super.user != null && !super.user.isAnonymous()){
             BusProvider.getInstance().register(this);
             super.auth.addAuthStateListener(authStateListener);
-            if (userRef != null){
+            if (userRef != null && !super.user.isAnonymous()){
                 userRef.addValueEventListener(onUidUserDataListener);
             }
             if (refCompanyTable != null){

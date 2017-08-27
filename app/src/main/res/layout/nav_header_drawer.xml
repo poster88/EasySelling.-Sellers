@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:background="@drawable/common_full_open_on_phone" />
+        android:background="@drawable/wp1862052" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             android:layout_width="@dimen/profile_width"
             android:layout_height="@dimen/profile_height"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+            app:srcCompat="@drawable/user"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
 

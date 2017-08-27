@@ -23,13 +23,16 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.poster.easysellingsellers.R;
 import com.example.poster.easysellingsellers.event.UpdateCompanyUI;
 import com.example.poster.easysellingsellers.event.UpdateUIEvent;
+import com.example.poster.easysellingsellers.event.UserAddEvent;
 import com.example.poster.easysellingsellers.eventbus.BusProvider;
 import com.example.poster.easysellingsellers.lisntener.MyValueEventListener;
 import com.example.poster.easysellingsellers.model.CompaniesInfoTable;
+import com.example.poster.easysellingsellers.model.RequestToAddClientToCompaniesTable;
 import com.example.poster.easysellingsellers.model.UserLoginInfoTable;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
@@ -45,11 +48,12 @@ public class BaseActivity extends AppCompatActivity {
     protected final String USER_INFO_TABLE = "UserLoginInfoTable";
     protected final String COMP_INF_TABLE = "CompaniesInfoTable";
     protected final String USER_ORDER_TABLE = "UserOrderTable";
-    protected final String TAG_HOME = "Products catalog";
+    protected final String REQ_TABLE = "RequestToAddClientToCompaniesTable";
+    protected final String TAG_HOME = "My company";
     protected final String TAG_ACCOUNT = "My account";
     protected final String TAG_ORDER = "My orders";
     protected final String TAG_CHAT = "Company chat";
-    protected final String TAG_FAVORITE = "Favorite";
+    protected final String TAG_USER_REQ = "Users requests";
     protected final String TAG_NEWS = "News";
     protected final String TAG_INFORMATION = "Information";
     protected final String URL_COMPANY_INFO_TABLE = "https://fir-projectdb.firebaseio.com/CompaniesInfoTable";
@@ -66,6 +70,8 @@ public class BaseActivity extends AppCompatActivity {
     public static Query userRef;
     public static CompaniesInfoTable companiesInfoTable;
     public static Query refCompanyTable;
+    public static RequestToAddClientToCompaniesTable requestTable;
+    public static DatabaseReference reguestsRef;
 
     public static Query reqvestsToAddUsersTableRef;
 
@@ -77,6 +83,22 @@ public class BaseActivity extends AppCompatActivity {
             for (DataSnapshot data: dataSnapshot.getChildren()){
                 userModel = data.getValue(UserLoginInfoTable.class);
                 BusProvider.getInstance().post(new UpdateUIEvent());
+                reguestsRef = database.getReference(REQ_TABLE);
+                reguestsRef.addValueEventListener(onRequestListener);
+            }
+        }
+    };
+
+    private MyValueEventListener onRequestListener = new MyValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            if (companiesInfoTable != null){
+                for (DataSnapshot data: dataSnapshot.getChildren()) {
+                    if (data.getValue(RequestToAddClientToCompaniesTable.class).getCompanyId().equals(companiesInfoTable.getcompanyId())){
+                        requestTable = data.getValue(RequestToAddClientToCompaniesTable.class);
+                    }
+                    BusProvider.getInstance().post(new UserAddEvent());
+                }
             }
         }
     };

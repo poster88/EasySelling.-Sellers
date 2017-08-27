@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="6dp">
+
+    <RelativeLayout
+        android:id="@+id/create_com_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/company_create_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/warehouse"/>
+
+        <ImageView
+            android:id="@+id/company_photo_edit"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@id/company_create_logo"
+            android:layout_marginLeft="6dp"
+            android:layout_alignBottom="@id/company_create_logo"
+            android:src="@drawable/ic_edit_black_24dp"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:id="@+id/company_name_create_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Company name"
+            android:layout_below="@id/company_create_logo"/>
+
+        <EditText
+            android:id="@+id/company_create_name_edit"
+            android:textSize="16dp"
+            android:maxLength="256"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:layout_below="@+id/company_name_create_label"/>
+
+        <TextView
+            android:id="@+id/company_create_descr_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Company description"
+            android:layout_below="@+id/company_create_name_edit"/>
+
+        <EditText
+            android:id="@+id/company_create_descr_edit"
+            android:textSize="16dp"
+            android:maxLength="256"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            android:layout_below="@+id/company_create_descr_label"/>
+
+        <TextView
+            android:id="@+id/company_create_key_pr_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Company keys products"
+            android:layout_below="@+id/company_create_descr_edit"/>
+
+        <LinearLayout
+            android:id="@+id/container_key_pr"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:layout_below="@+id/company_create_key_pr_label">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/productName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="5dp"
+                    android:padding="8dp"
+                    android:background="@drawable/round"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/add_line_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_add_black_24dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/company_create_my_pos_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Company positions"
+            android:layout_below="@+id/container_key_pr" />
+
+        <LinearLayout
+            android:id="@+id/company_create_my_pos_container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="16dp"
+            android:textStyle="normal"
+            android:text="founder"
+            android:layout_below="@+id/company_create_my_pos_label">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/position_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="5dp"
+                    android:padding="8dp"
+                    android:background="@drawable/round"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/add_position_image"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_add_black_24dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/company_create_btn"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="create"
+            android:textAllCaps="false"
+            android:background="@drawable/color_button"
+            android:layout_marginTop="6dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/company_create_my_pos_container"
+            android:layout_marginBottom="16dp"/>
+    </RelativeLayout>
+
+</ScrollView>
